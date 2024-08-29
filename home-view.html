@@ -13,7 +13,7 @@
         <div class="blog-title" id="blogTitle"></div>
         <div class="blog-date" id="blogDate"></div>
         <div class="blog-content" id="blogContent"></div>
-        <a href="home.html" class="back-link">Back to All Blogs</a>
+        <a href="index.html" class="back-link">Back to All Blogs</a>
     </div>
 
     <script>
@@ -46,7 +46,7 @@
                     document.getElementById('blogImage').alt = blog.title; // Improved alt text
                 } else if (response.status === 404) {
                     alert('Blog not found');
-                    window.location.href = 'home.html'; // Redirect if the blog is not found
+                    window.location.href = 'index.html'; // Redirect if the blog is not found
                 } else {
                     alert('Error fetching blog');
                 }
