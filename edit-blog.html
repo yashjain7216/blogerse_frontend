@@ -42,7 +42,7 @@
             }
 
             try {
-                const response = await fetch(`http://localhost:8082/blog/id/${blogId}`, {
+                const response = await fetch(`https://blogerse-production.up.railway.app/blog/id/${blogId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer ' + jwt
@@ -90,7 +90,7 @@
             };
 
             try {
-                const response = await fetch(`http://localhost:8082/blog/id/${blogId}`, {
+                const response = await fetch(`https://blogerse-production.up.railway.app/blog/id/${blogId}`, {
                     method: 'PUT',
                     headers: {
                         'Authorization': 'Bearer ' + jwt,
