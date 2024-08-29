@@ -67,7 +67,7 @@
         async function fetchBlogs() {
             try {
                 checkJwtToken();
-                const response = await fetch('blogerse-production.up.railway.app/blog', {
+                const response = await fetch('https://blogerse-production.up.railway.app/blog', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
