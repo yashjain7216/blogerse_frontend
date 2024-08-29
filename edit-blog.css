@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+/* Ensure textarea doesn't overflow */
+textarea {
+    resize: vertical;
+    max-height: 300px;
+}
+
+/* Button and Link Styles */
+.submit-btn,
+.cancel-link {
+    display: inline-block;
+    width: calc(50% - 10px); /* Equal width for both buttons */
+    padding: 12px 0;
+    margin: 10px 5px 0 0;
+    text-align: center;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cancel-link {
+    background-color: #6c757d;
+}
+
+.submit-btn:hover,
+.cancel-link:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}

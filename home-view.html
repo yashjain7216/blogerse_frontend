@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+    <link rel="stylesheet" href="view-blog.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Details</h1>
+        <img id="blogImage" class="blog-image" alt="Blog Image" />
+        <div class="blog-title" id="blogTitle"></div>
+        <div class="blog-date" id="blogDate"></div>
+        <div class="blog-content" id="blogContent"></div>
+        <a href="home.html" class="back-link">Back to All Blogs</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const blogId = urlParams.get('id');
+
+            if (!blogId) {
+                alert('No blog ID provided');
+                window.location.href = 'all-blogs.html'; // Redirect if no ID is found
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8082/public/id/${blogId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const blog = await response.json();
+
+                    // Set the blog details
+                    document.getElementById('blogTitle').innerText = blog.title;
+                    document.getElementById('blogDate').innerText = new Date(blog.createdAt).toLocaleDateString();
+                    document.getElementById('blogContent').innerText = blog.content;
+                    document.getElementById('blogImage').src = `data:image/jpeg;base64,${blog.image}`;
+                    document.getElementById('blogImage').alt = blog.title; // Improved alt text
+                } else if (response.status === 404) {
+                    alert('Blog not found');
+                    window.location.href = 'home.html'; // Redirect if the blog is not found
+                } else {
+                    alert('Error fetching blog');
+                }
+            } catch (error) {
+                console.error('Error fetching blog:', error);
+                alert('Failed to connect to the server. Please try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
