@@ -51,7 +51,7 @@
                     const blog = await response.json();
 
                     document.getElementById('blogTitle').innerText = blog.title;
-                    document.getElementById('blogDate').innerText = new Date(blog.createdAt).toLocaleDateString();
+                    document.getElementById('blogDate').innerText = new Date(blog.date).toLocaleDateString();
                     document.getElementById('blogContent').innerText = blog.content;
                     document.getElementById('blogImage').src = `data:image/jpeg;base64,${blog.image}`;
                     document.getElementById('blogImage').alt = blog.title;
